@@ -9,8 +9,8 @@
  * @uses ManagerManager plugin 0.6.1.
  * 
  * @param $tvs {comma separated string} - The name(s) of the template variables this should apply to. Default: ''.
- * @param $w {integer} - Preferred maximum width of the preview. Default: 300.
- * @param $h {integer} - Preferred maximum height of the preview. Default: 100.
+ * @param $maxWidth {integer} - Preferred maximum width of the preview. Default: 300.
+ * @param $maxHeight {integer} - Preferred maximum height of the preview. Default: 100.
  * @param $roles {comma separated string} - The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
  * @param $templates {comma separated string} - Id of the templates to which this widget is applied (when this parameter is empty then widget is applied to the all templates). Default: ''.
  * 
@@ -19,7 +19,7 @@
  * @copyright 2012
  */
 
-function mm_widget_showimagetvs($tvs = '', $w = 300, $h = 100, $thumbnailerUrl = '', $roles = '', $templates = ''){
+function mm_widget_showimagetvs($tvs = '', $maxWidth = 300, $maxHeight = 100, $thumbnailerUrl = '', $roles = '', $templates = ''){
 	if (!useThisRule($roles, $templates)){return;}
 	
 	global $modx;
@@ -47,8 +47,8 @@ function mm_widget_showimagetvs($tvs = '', $w = 300, $h = 100, $thumbnailerUrl =
 '
 $j("#tv'.$tv['id'].'").mm_widget_showimagetvs({
 	thumbnailerUrl: "'.trim($thumbnailerUrl).'",
-	width: '.intval($w).',
-	height: '.intval($h).',
+	width: '.intval($maxWidth).',
+	height: '.intval($maxHeight).',
 });
 ';
 		}
