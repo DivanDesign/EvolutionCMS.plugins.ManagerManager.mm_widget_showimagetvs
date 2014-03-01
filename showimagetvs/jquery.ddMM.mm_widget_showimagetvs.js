@@ -27,7 +27,7 @@ $.ddMM.mm_widget_showimagetvs = {
 
 /**
  * jQuery.fn.mm_widget_showimagetvs Plugin
- * @version 1.0 (2014-03-01)
+ * @version 1.0.1 (2014-03-01)
  * 
  * @description Делает превьюшку для tv.
  * 
@@ -80,7 +80,7 @@ $.fn.mm_widget_showimagetvs = function(params){
 		}else{
 			$img.hide();
 		}
-	}).trigger('change');
+	}).trigger('load');
 };
 
 //On document.ready
