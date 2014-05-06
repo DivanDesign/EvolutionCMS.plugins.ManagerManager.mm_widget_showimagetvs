@@ -1,10 +1,9 @@
 /**
  * jQuery ddMM.mm_widget_showimagetvs Plugin
- * @version 1.0.1 (2014-05-06)
+ * @version 1.0 (2014-03-01)
  * 
  * @uses jQuery 1.9.1
  * @uses $.ddMM 1.1.2
- * @uses $.ddTools 1.8.1
  * 
  * @copyright 2014, DivanDesign
  * http://www.DivanDesign.biz
