@@ -67,10 +67,11 @@ $.fn.mm_widget_showimagetvs = function(params){
 		$this.data('lastvalue', url);
 		
 		// If we have a PHPThumb URL
-		if (params.thumbnailerUrl.length > 0){
-			url = params.thumbnailerUrl + '?src=' + escape(url) + '&w=' + params.width + '&h=' + params.height;
-		}else if (url.length > 0 && url.search(/http:\/\//i) == -1){
+		if (url.length > 0 && url.search(/http:\/\//i) == -1 && url.search(/\//) != 0){
 			url = $.ddMM.config.site_url + url;
+		}
+		if (url.length > 0 && params.thumbnailerUrl.length > 0){
+			url = params.thumbnailerUrl + '?src=' + escape(url) + '&w=' + params.width + '&h=' + params.height;
 		}
 		
 		$img.attr('src', url);
