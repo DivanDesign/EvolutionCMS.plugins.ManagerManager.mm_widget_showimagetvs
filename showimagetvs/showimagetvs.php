@@ -3,16 +3,7 @@
  * mm_widget_showimagetvs
  * @version 1.2.1 (2014-05-07)
  * 
- * @desc A widget for ManagerManager plugin that allows the preview of images chosen in image TVs to be shown on the document editing page.
- * Emulates showimagestv plugin, which is not compatible with ManagerManager.
- * 
- * @uses ManagerManager plugin 0.6.1.
- * 
- * @param $tvs {stringCommaSeparated} — The name(s) of the template variables this should apply to. Default: ''.
- * @param $maxWidth {integer} — Preferred maximum width of the preview. Default: 300.
- * @param $maxHeight {integer} — Preferred maximum height of the preview. Default: 100.
- * @param $roles {stringCommaSeparated} — The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
- * @param $templates {stringCommaSeparated} — Id of the templates to which this widget is applied (when this parameter is empty then widget is applied to the all templates). Default: ''.
+ * @see README.md
  * 
  * @link https://code.divandesign.biz/modx/mm_widget_showimagetvs
  * 
