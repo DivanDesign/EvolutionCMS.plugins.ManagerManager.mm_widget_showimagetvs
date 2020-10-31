@@ -15,7 +15,7 @@
 
 ### Установка
 
-Для установки распакуйте архив в `/assets/plungins/managermanager/widgets/`.
+Для установки распакуйте архив в `/assets/plungins/managermanager/widgets/showimagetvs/`.
 
 
 Смотрите также документацию:

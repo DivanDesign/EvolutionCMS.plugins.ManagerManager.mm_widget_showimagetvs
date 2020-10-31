@@ -15,7 +15,7 @@ Emulates the ShowImageTVs plugin, which is not compatible with ManagerManager.
 
 ### Installation
 
-To install you must unzip the archive to `/assets/plungins/managermanager/widgets/`.
+To install you must unzip the archive to `/assets/plungins/managermanager/widgets/showimagetvs/`.
 
 
 You may also read this documentation:
