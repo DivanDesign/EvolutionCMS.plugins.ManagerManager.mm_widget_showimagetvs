@@ -61,7 +61,7 @@ function mm_widget_showimagetvs($params){
 		//The main js file including
 		$output = includeJsCss(
 			(
-				$modx->config['site_url'] .
+				$modx->getConfig('site_url') .
 				'assets/plugins/managermanager/widgets/showimagetvs/jquery.ddMM.mm_widget_showimagetvs.js'
 			),
 			'html',
