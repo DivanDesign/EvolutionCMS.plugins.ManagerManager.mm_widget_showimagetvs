@@ -66,7 +66,7 @@ function mm_widget_showimagetvs($params){
 			),
 			'html',
 			'jQuery.ddMM.mm_widget_showimagetvs',
-			'1.0.2'
+			'1.0.3'
 		);
 		
 		$e->output($output);

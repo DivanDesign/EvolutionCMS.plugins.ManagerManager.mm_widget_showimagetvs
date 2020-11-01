@@ -1,10 +1,10 @@
 /**
  * jQuery ddMM.mm_widget_showimagetvs Plugin
- * @version 1.0.2 (2020-10-31)
+ * @version 1.0.3 (2020-11-01)
  * 
  * @uses jQuery 1.9.1
- * @uses $.ddMM 1.1.2
- * @uses $.ddTools 1.8.1
+ * @uses jQuery.ddMM 1.2.2
+ * @uses jQuery.ddTools 2.3.1
  * 
  * @copyright 2014–2020 [DD Group]{@link https://DivanDesign.biz }
  */
@@ -27,7 +27,7 @@ $.ddMM.mm_widget_showimagetvs = {
 
 /**
  * jQuery.fn.mm_widget_showimagetvs Plugin
- * @version 1.0.3 (2020-10-31)
+ * @version 1.0.4 (2020-11-01)
  * 
  * @description Делает превьюшку для tv.
  * 
@@ -55,10 +55,14 @@ $.fn.mm_widget_showimagetvs = function(params){
 				var
 					$this = $(this),
 					//Create a new preview
-					$previewContainer = $($.ddTools.parseChunkAssoc(
-						_this.templates.previewContainer,
-						params
-					))
+					$previewContainer = $($.ddTools.parseText({
+						text:
+							_this
+								.templates
+								.previewContainer
+						,
+						data: params
+					}))
 				;
 				
 				$previewContainer.appendTo($this.parents('td:first'));
