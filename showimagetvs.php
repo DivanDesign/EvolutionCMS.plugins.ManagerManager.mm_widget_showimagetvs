@@ -10,18 +10,45 @@
  * @copyright 2014 DD Group {@link https://DivanDesign.biz }
  */
 
-function mm_widget_showimagetvs(
-	$tvs = '',
-	$maxWidth = 300,
-	$maxHeight = 100,
-	$thumbnailerUrl = '',
-	$roles = '',
-	$templates = ''
-){
+function mm_widget_showimagetvs($params){
+	//For backward compatibility
+	if (
+		!is_array($params) &&
+		!is_object($params)
+	){
+		//Convert ordered list of params to named
+		$params = \ddTools::orderedParamsToNamed([
+			'paramsList' => func_get_args(),
+			'compliance' => [
+				'fields',
+				'maxWidth',
+				'maxHeight',
+				'thumbnailerUrl',
+				'roles',
+				'templates'
+			]
+		]);
+	}
+	
+	//Defaults
+	$params = \DDTools\ObjectTools::extend([
+		'objects' => [
+			(object) [
+				'fields' => '',
+				'maxWidth' => 300,
+				'maxHeight' => 100,
+				'thumbnailerUrl' => '',
+				'roles' => '',
+				'templates' => ''
+			],
+			$params
+		]
+	]);
+	
 	if (
 		!useThisRule(
-			$roles,
-			$templates
+			$params->roles,
+			$params->templates
 		)
 	){
 		return;
@@ -49,12 +76,12 @@ function mm_widget_showimagetvs(
 		$output = '';
 		
         // Does this page's template use any image TVs? If not, quit now!
-		$tvs = tplUseTvs(
+		$params->fields = tplUseTvs(
 			$mm_current_page['template'],
-			$tvs,
+			$params->fields,
 			'image'
 		);
-		if ($tvs == false){
+		if ($params->fields == false){
 			return;
 		}
 		
@@ -65,15 +92,15 @@ function mm_widget_showimagetvs(
 		
 		// Go through each TV
 		foreach (
-			$tvs as
-			$tv
+			$params->fields as
+			$field
 		){
 			$output .= 
 '
-$j("#tv' . $tv['id'] . '").mm_widget_showimagetvs({
-	thumbnailerUrl: "' . trim($thumbnailerUrl) . '",
-	width: ' . intval($maxWidth) . ',
-	height: ' . intval($maxHeight) . ',
+$j("#tv' . $field['id'] . '").mm_widget_showimagetvs({
+	thumbnailerUrl: "' . trim($params->thumbnailerUrl) . '",
+	width: ' . intval($params->maxWidth) . ',
+	height: ' . intval($params->maxHeight) . ',
 });
 '
 			;

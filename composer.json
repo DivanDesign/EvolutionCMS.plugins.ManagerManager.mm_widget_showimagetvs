@@ -41,6 +41,7 @@
 		}
 	],
 	"require": {
-		"dd/evolutioncms-plugins-managermanager": ">=0.6.1"
+		"php": ">=5.4.0",
+		"dd/evolutioncms-plugins-managermanager": ">=0.7.0"
 	}
 }

@@ -7,7 +7,8 @@ Emulates the ShowImageTVs plugin, which is not compatible with ManagerManager.
 
 ## Requires
 
-* [(MODX)EvolutionCMS.plugins.ManagerManager](https://code.divandesign.biz/modx/managermanager) >= 0.6.1
+* PHP >= 5.4
+* [(MODX)EvolutionCMS.plugins.ManagerManager](https://code.divandesign.biz/modx/managermanager) >= 0.7
 
 
 ## Documentation
@@ -25,49 +26,56 @@ You may also read this documentation:
 
 ### Parameters description
 
-* `$tvs`
+* `$params`
+	* Desctription: Parameters, the pass-by-name style is used.
+	* Valid values:
+		* `stdClass`
+		* `arrayAssociative`
+	* Default value: `[]`
+	
+* `$params->fields`
 	* Desctription: The names of TVs for which the widget is applied.  
 	* Valid values:
 		* `stringCommaSeparated`
 		* `''` — empty value means the widget is applying to all TVs
 	* Default value: `''`
 	
-* `$maxWidth`
+* `$params->maxWidth`
 	* Desctription: Preferred maximum width of the preview.
 	* Valid values: `integer`
 	* Default value: `300`
 	
-* `$maxHeight`
+* `$params->maxHeight`
 	* Desctription: Preferred maximum height of the preview.
 	* Valid values: `integer`
 	* Default value: `100`
 	
-* `$thumbnailerUrl`
+* `$params->thumbnailerUrl`
 	* Desctription: If you have PHPThumb installed (for example through Maxigallery or phpthumb plugins/snippets), use this to make thumbnails rather than resizing the image previews via CSS.  
 		Particularly useful if you are using very large pictures, which would take a long time to download.
 	* Valid values: `string`
 	* Default value: —
 	
-* `$roles`
+* `$params->roles`
 	* Desctription: The CMS user roles that the widget is applied to.
 	* Valid values:
 		* `stringCommaSeparated`
 		* `''` — when this parameter is empty then widget is applied to the all roles
 	* Default value: `''`
 	
-* `$roles[i]`
+* `$params->roles[i]`
 	* Desctription: CMS user role.
 	* Valid values: `integer`
 	* **Required**
 	
-* `$templates`
+* `$params->templates`
 	* Desctription: Document templates IDs for which the widget is applying to.
 	* Valid values:
 		* `stringCommaSeparated`
 		* `''` — empty value means the widget is applying to all templates
 	* Default value: `''`
 	
-* `$templates[i]`
+* `$params->templates[i]`
 	* Desctription: Templates ID.
 	* Valid values: `integer`
 	* **Required**
@@ -84,33 +92,31 @@ You may also read this documentation:
 
 #### Add an image preview to every image-type template variable
 
-```
+```php
 mm_widget_showimagetvs();
 ```
 
 
 #### Add a 150 × 150 px image preview to every image-type template variable
 
-```
-mm_widget_showimagetvs(
-	'',
-	150,
-	150
-);
+```php
+mm_widget_showimagetvs([
+	'maxWidth' => 150,
+	'maxHeight' => 150
+]);
 ```
 
 
 #### Add an image preview to the `mypic` template variables in template `2`, resized to 300 × 200 px using phpthumb at the URL supplied
 
-```
-mm_widget_showimagetvs(
-	'mypic',
-	'300',
-	'200',
-	'/assets/snippets/phpthumb/phpThumb.php',
-	'',
-	'2'
-);
+```php
+mm_widget_showimagetvs([
+	'fields' => 'mypic',
+	'maxWidth' => 300,
+	'maxHeight' => 200,
+	'thumbnailerUrl' => '/assets/snippets/phpthumb/phpThumb.php',
+	'templates' => '2'
+]);
 ```
 
 

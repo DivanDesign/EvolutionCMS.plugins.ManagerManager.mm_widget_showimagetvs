@@ -7,7 +7,8 @@
 
 ## Использует
 
-* [(MODX)EvolutionCMS.plugins.ManagerManager](https://code.divandesign.ru/modx/managermanager) >= 0.6.1
+* PHP >= 5.4
+* [(MODX)EvolutionCMS.plugins.ManagerManager](https://code.divandesign.ru/modx/managermanager) >= 0.7
 
 
 ## Документация
@@ -25,24 +26,31 @@
 
 ### Описание параметров
 
-* `$tvs`
+* `$params`
+	* Описание: Параметры, используется стиль именованных параметров.
+	* Допустимые значения:
+		* `stdClass`
+		* `arrayAssociative`
+	* Значение по умолчанию: `[]`
+	
+* `$params->fields`
 	* Описание: TV, для которых необходимо отобразить превьюшки.  
 	* Допустимые значения:
 		* `stringCommaSeparated`
 		* `''` — применяется для всех TV при пустом значении
 	* Значение по умолчанию: `''`
 	
-* `$maxWidth`
+* `$params->maxWidth`
 	* Описание: Максимальная ширина превьюшки в px.
 	* Допустимые значения: `integer`
 	* Значение по умолчанию: `300`
 	
-* `$maxHeight`
+* `$params->maxHeight`
 	* Описание: Максимальная высота превьюшки в px.
 	* Допустимые значения: `integer`
 	* Значение по умолчанию: `100`
 	
-* `$thumbnailerUrl`
+* `$params->thumbnailerUrl`
 	* Описание: Если у вас установлен PHPThumb, вы можете указать url, где он находится, адрес превью будет обращён к нему с передачей URL исходной картинки, ширины и высоты.
 	* Допустимые значения: `string`
 	* Значение по умолчанию: —
@@ -83,33 +91,31 @@
 
 #### Показать превью для всех TV-изображений
 
-```
+```php
 mm_widget_showimagetvs();
 ```
 
 
 #### Показать превью для всех TV-изображений, максимальным размером 150 × 150 px
 
-```
-mm_widget_showimagetvs(
-	'',
-	150,
-	150
-);
+```php
+mm_widget_showimagetvs([
+	'maxWidth' => 150,
+	'maxHeight' => 150
+]);
 ```
 
 
 #### Показать превью для TV `mypic` у документов с id шаблона = `2` и отправить за одно на генерацию в phpThumb для получения превьюшек размером 300 × 200 px
 
-```
-mm_widget_showimagetvs(
-	'mypic',
-	'300',
-	'200',
-	'/assets/snippets/phpthumb/phpThumb.php',
-	'',
-	'2'
-);
+```php
+mm_widget_showimagetvs([
+	'fields' => 'mypic',
+	'maxWidth' => 300,
+	'maxHeight' => 200,
+	'thumbnailerUrl' => '/assets/snippets/phpthumb/phpThumb.php',
+	'templates' => '2'
+]);
 ```
 
 
