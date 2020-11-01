@@ -83,30 +83,26 @@ function mm_widget_showimagetvs($params){
 			return;
 		}
 		
-		$output .=
-			'//---------- mm_widget_showimagetvs :: Begin -----' .
-			PHP_EOL
-		;
-		
-		// Go through each TV
-		foreach (
-			$params->fields as
-			$field
-		){
-			$output .= 
+		$output .= 
 '
-$j("#tv' . $field['id'] . '").mm_widget_showimagetvs({
-	thumbnailerUrl: "' . trim($params->thumbnailerUrl) . '",
-	width: ' . intval($params->maxWidth) . ',
-	height: ' . intval($params->maxHeight) . ',
-});
+//---------- mm_widget_showimagetvs :: Begin -----
+$j.ddMM
+	.getFieldElems({
+		fields: ' .
+			\DDTools\ObjectTools::convertType([
+				'object' => $params->fields,
+				'type' => 'stringJsonArray'
+			]) .
+		'
+	})
+	.mm_widget_showimagetvs({
+		thumbnailerUrl: "' . trim($params->thumbnailerUrl) . '",
+		width: ' . intval($params->maxWidth) . ',
+		height: ' . intval($params->maxHeight) . ',
+	})
+;
+//---------- mm_widget_showimagetvs :: End -----
 '
-			;
-		}
-		
-		$output .=
-			'//---------- mm_widget_showimagetvs :: End -----' .
-			PHP_EOL
 		;
 		
 		$e->output($output);
