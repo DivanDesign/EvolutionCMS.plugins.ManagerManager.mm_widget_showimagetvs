@@ -1,6 +1,25 @@
 # (MODX)EvolutionCMS.plugins.ManagerManager.mm_widget_showimagetvs changelog
 
 
+## Версия 1.3 (2020-11-01)
+* \* Внимание! Требуется PHP >= 5.4.
+* \* Внимание! Требуется (MODX)EvolutionCMS.plugins.ManagerManager >= 0.7.
+* \* Рефакторинг:
+	* \* Изменена структура репозитория.
+	* \* Виджет теперь использует именованные параметры (обратная совместимость сохранена).
+	* \* Используется `$modx->getConfig('site_url')` вместо `$modx->config['site_url']`.
+	* \* Используется `getTplMatchedFields`.
+	* \* Используется `jQuery.ddMM.getFieldElems`.
+* \* `jQuery.ddMM.mm_widget_showimagetvs`:
+	* \* Compatibility with `jQuery.ddTools` >= 2.0.
+	* \* File name refactoring.
+* \+ README.
+* \+ README_ru.
+* \+ CHANGELOG.
+* \+ CHANGELOG_ru.
+* \+ Composer.json.
+
+
 ## Версия 1.2.1 (2014-05-07)
 * \* Плагин `$.fn.mm_widget_showimagetvs` обновлён до 1.0.2:
 	* \* Вместо события `change` в первый раз запускается событие `load`.

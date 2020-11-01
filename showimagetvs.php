@@ -1,13 +1,13 @@
 <?php
 /**
  * mm_widget_showimagetvs
- * @version 1.2.1 (2014-05-07)
+ * @version 1.3 (2020-11-01)
  * 
  * @see README.md
  * 
  * @link https://code.divandesign.biz/modx/mm_widget_showimagetvs
  * 
- * @copyright 2014 DD Group {@link https://DivanDesign.biz }
+ * @copyright 2014–2020 DD Group {@link https://DivanDesign.biz }
  */
 
 function mm_widget_showimagetvs($params){

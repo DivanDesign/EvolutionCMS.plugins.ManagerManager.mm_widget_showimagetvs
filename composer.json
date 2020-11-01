@@ -1,6 +1,6 @@
 {
 	"name": "dd/evolutioncms-plugins-managermanager-mm_widget_showimagetvs",
-	"version": "1.2.1",
+	"version": "1.3.0",
 	"description": "A widget for ManagerManager plugin that allows the preview of images chosen in image TVs to be shown on the document editing page.",
 	"keywords": [
 		"modx",
