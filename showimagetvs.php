@@ -71,17 +71,15 @@ function mm_widget_showimagetvs($params){
 		
 		$e->output($output);
 	}else if ($e->name == 'OnDocFormRender'){
-		global $mm_current_page;
-		
 		$output = '';
 		
-        // Does this page's template use any image TVs? If not, quit now!
-		$params->fields = tplUseTvs(
-			$mm_current_page['template'],
+        //Does this page's template use any image TVs? If not, quit now!
+		$params->fields = getTplMatchedFields(
 			$params->fields,
 			'image'
 		);
-		if ($params->fields == false){
+		
+		if ($params->fields === false){
 			return;
 		}
 		
