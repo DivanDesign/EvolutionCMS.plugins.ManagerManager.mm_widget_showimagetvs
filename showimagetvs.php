@@ -70,7 +70,7 @@ function mm_widget_showimagetvs($params){
 		);
 		
 		$e->output($output);
-	}else if ($e->name == 'OnDocFormRender'){
+	}elseif ($e->name == 'OnDocFormRender'){
 		$output = '';
 		
         //Does this page's template use any image TVs? If not, quit now!
