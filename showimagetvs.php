@@ -10,7 +10,10 @@
  * @copyright 2014–2020 DD Group {@link https://DivanDesign.biz }
  */
 
-function mm_widget_showimagetvs($params){
+function mm_widget_showimagetvs($params = [
+	'maxWidth' => 150,
+	'maxHeight' => 150
+]){
 	//For backward compatibility
 	if (
 		!is_array($params) &&
