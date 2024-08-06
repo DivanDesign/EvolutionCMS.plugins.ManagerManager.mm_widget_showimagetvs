@@ -11,12 +11,12 @@
  */
 
 function mm_widget_showimagetvs($params){
-	//For backward compatibility
+	// For backward compatibility
 	if (
 		!is_array($params) &&
 		!is_object($params)
 	){
-		//Convert ordered list of params to named
+		// Convert ordered list of params to named
 		$params = \ddTools::orderedParamsToNamed([
 			'paramsList' => func_get_args(),
 			'compliance' => [
@@ -30,7 +30,7 @@ function mm_widget_showimagetvs($params){
 		]);
 	}
 	
-	//Defaults
+	// Defaults
 	$params = \DDTools\ObjectTools::extend([
 		'objects' => [
 			(object) [
@@ -58,7 +58,7 @@ function mm_widget_showimagetvs($params){
 	$e = &$modx->Event;
 	
 	if ($e->name == 'OnDocFormPrerender'){
-		//The main js file including
+		// The main js file including
 		$output = includeJsCss(
 			(
 				$modx->getConfig('site_url') .
@@ -66,7 +66,7 @@ function mm_widget_showimagetvs($params){
 			),
 			'html',
 			'jQuery.ddMM.mm_widget_showimagetvs',
-			'1.0.3'
+			'1.0.4'
 		);
 		
 		$e->output($output);
@@ -85,7 +85,7 @@ function mm_widget_showimagetvs($params){
 		
 		$output .= 
 '
-//---------- mm_widget_showimagetvs :: Begin -----
+// ManagerManager.mm_widget_showimagetvs
 $j.ddMM
 	.getFieldElems({
 		fields: ' .
@@ -101,7 +101,6 @@ $j.ddMM
 		height: ' . intval($params->maxHeight) . ',
 	})
 ;
-//---------- mm_widget_showimagetvs :: End -----
 '
 		;
 		

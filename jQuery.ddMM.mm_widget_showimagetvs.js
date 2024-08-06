@@ -1,23 +1,23 @@
 /**
  * jQuery ddMM.mm_widget_showimagetvs Plugin
- * @version 1.0.3 (2020-11-01)
+ * @version 1.0.4 (2024-08-06)
  * 
  * @uses jQuery 1.9.1
  * @uses jQuery.ddMM 1.2.2
  * @uses jQuery.ddTools 2.3.1
  * 
- * @copyright 2014–2020 [DD Group]{@link https://DivanDesign.biz }
+ * @copyright 2014–2024 https://Ronef.me
  */
 
 (function($){
 $.ddMM.mm_widget_showimagetvs = {
-	//Параметры по умолчанию
+	// Параметры по умолчанию
 	defaults: {
-		//Если у вас установлен PHPThumb, вы можете указать url, где он находится, адрес превью будет обращён к нему с передачей url исходной картинки, ширины и высоты.
+		// Если у вас установлен PHPThumb, вы можете указать url, где он находится, адрес превью будет обращён к нему с передачей url исходной картинки, ширины и высоты.
 		thumbnailerUrl: '',
-		//Максимальная ширина превьюшки в px.
+		// Максимальная ширина превьюшки в px.
 		width: 300,
-		//Максимальная высота превьюшки в px.
+		// Максимальная высота превьюшки в px.
 		height: 100
 	},
 	templates: {
@@ -27,7 +27,7 @@ $.ddMM.mm_widget_showimagetvs = {
 
 /**
  * jQuery.fn.mm_widget_showimagetvs Plugin
- * @version 1.0.4 (2020-11-01)
+ * @version 1.0.5 (2024-08-06)
  * 
  * @description Делает превьюшку для tv.
  * 
@@ -36,12 +36,12 @@ $.ddMM.mm_widget_showimagetvs = {
  * @param [width=300] {integer} — Максимальная ширина превьюшки в px. Default: 300.
  * @param [height=100] {integer} — Максимальная высота превьюшки в px.
  * 
- * @copyright 2014–2020 [DD Group]{@link https://DivanDesign.biz }
+ * @copyright 2014–2024 https://Ronef.me
  */
 $.fn.mm_widget_showimagetvs = function(params){
 	var _this = $.ddMM.mm_widget_showimagetvs;
 	
-	//Обрабатываем параметры
+	// Обрабатываем параметры
 	params = $.extend(
 		{},
 		_this.defaults,
@@ -54,7 +54,7 @@ $.fn.mm_widget_showimagetvs = function(params){
 			.each(function(){
 				var
 					$this = $(this),
-					//Create a new preview
+					// Create a new preview
 					$previewContainer = $($.ddTools.parseText({
 						text:
 							_this
@@ -67,7 +67,7 @@ $.fn.mm_widget_showimagetvs = function(params){
 				
 				$previewContainer.appendTo($this.parents('td:first'));
 				
-				//Attach a browse event to the picture, so it can trigger too
+				// Attach a browse event to the picture, so it can trigger too
 				$previewContainer
 					.find('img')
 					.on(
@@ -86,7 +86,7 @@ $.fn.mm_widget_showimagetvs = function(params){
 				function(){
 					var
 						$this = $(this),
-						//Get the new URL
+						// Get the new URL
 						url = $.trim($this.val()),
 						$img =
 							$this
@@ -106,7 +106,7 @@ $.fn.mm_widget_showimagetvs = function(params){
 					){
 						url = $.ddMM.config.site_url + url;
 					}
-					//If we have a PHPThumb URL
+					// If we have a PHPThumb URL
 					if (
 						url.length > 0 &&
 						params.thumbnailerUrl.length > 0
@@ -138,7 +138,7 @@ $.fn.mm_widget_showimagetvs = function(params){
 	);
 };
 
-//On document.ready
+// On document.ready
 $(function(){
 	// Monitor the image TVs for changes
 	setInterval(
